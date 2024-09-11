@@ -1,0 +1,46 @@
+/* main-menu.component.scss */
+.sidenav-container {
+    height: 100%;
+}
+
+.mat-sidenav {
+    width: 300px;
+    /* Ajusta este valor según tus necesidades */
+    background-color: #333;
+    /* Fondo gris oscuro */
+    color: white;
+    /* Texto blanco */
+}
+
+.mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #333;
+    /* Fondo gris oscuro */
+    color: white;
+    /* Texto blanco */
+}
+
+.content {
+    padding: 16px;
+}
+
+.mat-list-item {
+    display: flex;
+    align-items: center;
+    color: white;
+    /* Texto blanco */
+}
+
+.mat-icon {
+    margin-right: 8px;
+    /* Espacio entre el icono y el texto */
+    color: white;
+    /* Iconos blancos */
+}
+
+.mat-list-item .mat-line {
+    color: white;
+    /* Asegura que el texto del menú sea blanco */
+}

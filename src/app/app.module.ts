@@ -26,6 +26,9 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { UserService } from './services/user.service';
 import { AddUserComponent } from './features/user/add-user/add-user.component';
 import { EditUserComponent } from './features/user/edit-user/edit-user.component';
+import { ProductComponent } from './features/product/product.component';
+import { AddProductComponent } from './features/product/add-product/add-product.component';
+import { EditProductComponent } from './features/product/edit-product/edit-product.component';
 
 
 
@@ -40,7 +43,10 @@ import { EditUserComponent } from './features/user/edit-user/edit-user.component
     FooterComponent,
     DashboardComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    ProductComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

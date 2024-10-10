@@ -1,0 +1,61 @@
+<!-- venta.component.html -->
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Ventas</h3>
+      <button class="btn btn-success float-right" (click)="navigateToAddVenta()">Agregar venta</button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <div class="table-responsive">
+        <table id="saleTable" class="table table-striped table-bordered dataTable dt-bootstrap4" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Tipo Envio</th>
+              <th>Distrito</th>
+              <th>Adelanto</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows">
+              <td>{{ row.id_venta }}</td>
+              <td>{{ row.cliente.nombres }} {{ row.cliente.apellidos }}</td>
+              <td>{{ row.tipo_envio?.descripcion || 'N/A' }}</td>
+              <td>{{ row.distrito?.nombre || 'N/A' }}</td>
+              <td>{{ row.adelanto }}</td>
+              <td>{{ row.total }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="editSale(row.id_venta)"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" (click)="openDeleteModal(row.id_venta)"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  
+  <!-- Modal de confirmación de eliminación -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar esta venta?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="confirmDelete()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>

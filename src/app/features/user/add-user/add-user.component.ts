@@ -36,7 +36,7 @@ export class AddUserComponent {
           if (response.status === 200) {
             toastr.success('Usuario creado exitosamente.', 'Éxito');
             setTimeout(() => {
-              this.router.navigate(['/users']);
+              this.router.navigate(['/user']);
             }, 2000);
           } else {
             toastr.error('Hubo un error al crear el usuario. Por favor, inténtelo de nuevo.', 'Error');

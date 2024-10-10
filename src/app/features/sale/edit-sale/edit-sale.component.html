@@ -1,0 +1,88 @@
+<!-- edit-sale.component.html -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Editar Venta</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="editSaleForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="id_usuario">ID Usuario</label>
+                    <input type="text" id="id_usuario" formControlName="id_usuario" class="form-control">
+                    <div *ngIf="editSaleForm.get('id_usuario')?.invalid && editSaleForm.get('id_usuario')?.touched" class="text-danger">
+                        El ID de usuario es requerido.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="id_cliente">ID Cliente</label>
+                    <input type="text" id="id_cliente" formControlName="id_cliente" class="form-control">
+                    <div *ngIf="editSaleForm.get('id_cliente')?.invalid && editSaleForm.get('id_cliente')?.touched" class="text-danger">
+                        El ID de cliente es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" formControlName="fecha" class="form-control">
+                    <div *ngIf="editSaleForm.get('fecha')?.invalid && editSaleForm.get('fecha')?.touched" class="text-danger">
+                        La fecha es requerida.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="total">Total</label>
+                    <input type="text" id="total" formControlName="total" class="form-control">
+                    <div *ngIf="editSaleForm.get('total')?.invalid && editSaleForm.get('total')?.touched" class="text-danger">
+                        El total es requerido y debe ser un número válido.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="adelanto">Adelanto</label>
+                    <input type="text" id="adelanto" formControlName="adelanto" class="form-control">
+                    <div *ngIf="editSaleForm.get('adelanto')?.invalid && editSaleForm.get('adelanto')?.touched" class="text-danger">
+                        El adelanto es requerido y debe ser un número válido.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="id_tipo_envio">Tipo de Envío</label>
+                    <input type="text" id="id_tipo_envio" formControlName="id_tipo_envio" class="form-control">
+                    <div *ngIf="editSaleForm.get('id_tipo_envio')?.invalid && editSaleForm.get('id_tipo_envio')?.touched" class="text-danger">
+                        El tipo de envío es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" formControlName="direccion" class="form-control">
+                    <div *ngIf="editSaleForm.get('direccion')?.invalid && editSaleForm.get('direccion')?.touched" class="text-danger">
+                        La dirección es requerida.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="id_distrito">Distrito</label>
+                    <input type="text" id="id_distrito" formControlName="id_distrito" class="form-control">
+                    <div *ngIf="editSaleForm.get('id_distrito')?.invalid && editSaleForm.get('id_distrito')?.touched" class="text-danger">
+                        El distrito es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="observacion">Observación</label>
+                    <textarea id="observacion" formControlName="observacion" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" id="flk_activo" formControlName="flk_activo" class="form-check-input">
+                <label for="flk_activo" class="form-check-label">Activo</label>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                <button type="button" class="btn btn-secondary" (click)="router.navigate(['/sales'])">Volver</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -80,7 +80,12 @@ export class UserComponent implements OnInit, OnDestroy {
               `;
             }
           }
-        ]
+        ],
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+        },
+        //responsive: true,
+        pagingType: 'simple_numbers', // Tipo de paginación
       });
 
       // Manejar eventos de los botones después de que la tabla se haya dibujado
@@ -99,7 +104,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   editUser(id: number): void {
     console.log('Edit user with id: ', id);
-    this.router.navigate(['/edit-user', id]);
+    this.router.navigate(['/user/edit-user', id]);
   }
 
   // deleteUser(id: number): void {
@@ -123,6 +128,6 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   navigateToAddUser(): void {
-    this.router.navigate(['/add-user']);
+    this.router.navigate(['/user/add-user']);
   }
 }

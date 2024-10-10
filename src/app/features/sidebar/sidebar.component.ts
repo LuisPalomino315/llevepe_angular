@@ -11,7 +11,7 @@ export class SidebarComponent {
     { name: 'Inicio', icon: 'home', link: '/home' },
     { name: 'Usuarios', icon: 'user', link: '/user' },
     { name: 'Productos', icon: 'cog', link: '/user' },
-    { name: 'Venta', icon: 'shopping-cart', link: '/user' },
+    { name: 'Venta', icon: 'shopping-cart', link: '/sale' },
     // Agrega más elementos del menú según sea necesario
   ];
 

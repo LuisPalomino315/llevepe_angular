@@ -1,0 +1,114 @@
+<!-- add-sale.component.html -->
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Agregar Venta</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="addSaleForm" (ngSubmit)="onSubmit()">
+      <h4>Cliente</h4>
+      <div formGroupName="cliente">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" formControlName="telefono" class="form-control" (input)="onPhoneInput()">
+            <div *ngIf="addSaleForm.get('cliente.telefono')?.invalid && addSaleForm.get('cliente.telefono')?.touched" class="text-danger">
+              El teléfono es requerido y debe ser un número válido.
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" formControlName="nombres" class="form-control">
+            <div *ngIf="addSaleForm.get('cliente.nombres')?.invalid && addSaleForm.get('cliente.nombres')?.touched" class="text-danger">
+              Los nombres son requeridos.
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+            <div *ngIf="addSaleForm.get('cliente.apellidos')?.invalid && addSaleForm.get('cliente.apellidos')?.touched" class="text-danger">
+              Los apellidos son requeridos.
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4>Venta</h4>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" formControlName="fecha" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="total">Total</label>
+          <input type="text" id="total" formControlName="total" class="form-control">
+          <div *ngIf="addSaleForm.get('total')?.invalid && addSaleForm.get('total')?.touched" class="text-danger">
+            El total debe ser un número válido.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="adelanto">Adelanto</label>
+          <input type="text" id="adelanto" formControlName="adelanto" class="form-control">
+          <div *ngIf="addSaleForm.get('adelanto')?.invalid && addSaleForm.get('adelanto')?.touched" class="text-danger">
+            El adelanto debe ser un número válido.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="id_tipo_envio">Tipo de Envío</label>
+          <input type="text" id="id_tipo_envio" formControlName="id_tipo_envio" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" formControlName="direccion" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="id_distrito">Distrito</label>
+          <input type="text" id="id_distrito" formControlName="id_distrito" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="observacion">Observación</label>
+          <textarea id="observacion" formControlName="observacion" class="form-control"></textarea>
+        </div>
+      </div>
+      <h4>Detalles</h4>
+      <div [formGroup]="detalleForm">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="id_producto">ID Producto</label>
+            <input type="text" id="id_producto" formControlName="id_producto" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="cantidad">Cantidad</label>
+            <input type="text" id="cantidad" formControlName="cantidad" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="precio">Precio</label>
+            <input type="text" id="precio" formControlName="precio" class="form-control">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addDetalle()">Agregar Detalle</button>
+    </form>
+    <h4>Detalles Agregados</h4>
+    <table id="detallesTable" class="display">
+      <thead>
+        <tr>
+          <th>ID Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-between mt-3">
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">Agregar</button>
+      <button type="button" class="btn btn-secondary" (click)="onBack()">Volver</button>
+    </div>
+  </div>
+</div>

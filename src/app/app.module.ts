@@ -24,8 +24,12 @@ import { SidebarComponent } from './features/sidebar/sidebar.component';
 import { FooterComponent } from './features/footer/footer.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { UserService } from './services/user.service';
+import { SaleService } from './services/sale.service';
 import { AddUserComponent } from './features/user/add-user/add-user.component';
 import { EditUserComponent } from './features/user/edit-user/edit-user.component';
+import { SaleComponent } from './features/sale/sale.component';
+import { AddSaleComponent } from './features/sale/add-sale/add-sale.component';
+import { EditSaleComponent } from './features/sale/edit-sale/edit-sale.component';
 
 
 
@@ -40,7 +44,10 @@ import { EditUserComponent } from './features/user/edit-user/edit-user.component
     FooterComponent,
     DashboardComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    SaleComponent,
+    AddSaleComponent,
+    EditSaleComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,7 @@ import { EditUserComponent } from './features/user/edit-user/edit-user.component
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, SaleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

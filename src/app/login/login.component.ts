@@ -18,7 +18,10 @@ export class LoginComponent {
     try {
       const response = await lastValueFrom(this.authService.login(this.username, this.password));
       // Maneja la respuesta de la API aquí
+
       console.log('Login exitoso:', response);
+      localStorage.setItem('username', this.username);
+      localStorage.setItem('id_usuario', response.id_usuario);
       this.router.navigate(['/home']);
     } catch (error) {
       // Maneja el error de la API aquí

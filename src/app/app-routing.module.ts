@@ -9,6 +9,9 @@ import { EditUserComponent } from './features/user/edit-user/edit-user.component
 import { SaleComponent } from './features/sale/sale.component';
 import { AddSaleComponent } from './features/sale/add-sale/add-sale.component'; // Importa el componente hijo
 import { EditSaleComponent } from './features/sale/edit-sale/edit-sale.component'; // Importa el componente hijo
+import { ProductComponent } from './features/product/product.component';
+import { AddProductComponent } from './features/product/add-product/add-product.component';
+import { EditProductComponent } from './features/product/edit-product/edit-product.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +27,10 @@ const routes: Routes = [
       { path: 'sale', component: SaleComponent },
       { path: 'sale/add-sale', component: AddSaleComponent },
       { path: 'sale/edit-sale', component: EditSaleComponent },
+      { path: 'product', component: ProductComponent },
+      { path: 'add-product', component: AddProductComponent },
+      { path: 'edit-product/:id', component: EditProductComponent },
+
       // Agrega más rutas secundarias según sea necesario
     ]
   },

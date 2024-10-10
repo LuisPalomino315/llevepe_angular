@@ -30,6 +30,9 @@ import { EditUserComponent } from './features/user/edit-user/edit-user.component
 import { SaleComponent } from './features/sale/sale.component';
 import { AddSaleComponent } from './features/sale/add-sale/add-sale.component';
 import { EditSaleComponent } from './features/sale/edit-sale/edit-sale.component';
+import { ProductComponent } from './features/product/product.component';
+import { AddProductComponent } from './features/product/add-product/add-product.component';
+import { EditProductComponent } from './features/product/edit-product/edit-product.component';
 
 
 
@@ -47,7 +50,10 @@ import { EditSaleComponent } from './features/sale/edit-sale/edit-sale.component
     EditUserComponent,
     SaleComponent,
     AddSaleComponent,
-    EditSaleComponent
+    EditSaleComponent,
+    ProductComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

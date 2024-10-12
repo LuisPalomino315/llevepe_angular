@@ -33,6 +33,10 @@ import { EditSaleComponent } from './features/sale/edit-sale/edit-sale.component
 import { ProductComponent } from './features/product/product.component';
 import { AddProductComponent } from './features/product/add-product/add-product.component';
 import { EditProductComponent } from './features/product/edit-product/edit-product.component';
+import { CategoryComponent } from './features/category/category.component';
+import { AddCategoryComponent } from './features/category/add-category/add-category.component';
+import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
+import { ModeloComponent } from './features/modelo/modelo.component';
 
 
 
@@ -53,7 +57,11 @@ import { EditProductComponent } from './features/product/edit-product/edit-produ
     EditSaleComponent,
     ProductComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    CategoryComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    ModeloComponent
   ],
   imports: [
     BrowserModule,

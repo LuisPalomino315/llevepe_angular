@@ -15,6 +15,9 @@ import { EditProductComponent } from './features/product/edit-product/edit-produ
 import { CategoryComponent } from './features/category/category.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
+import { ModeloComponent } from './features/modelo/modelo.component';
+import { AddModeloComponent } from './features/modelo/add-modelo/add-modelo.component';
+import { EditModeloComponent } from './features/modelo/edit-modelo/edit-modelo.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,6 +39,10 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent },
+      { path: 'modelo', component: ModeloComponent },
+      { path: 'add-modelo', component: AddModeloComponent },
+      { path: 'edit-modelo/:id', component: EditModeloComponent },
+
 
       // Agrega más rutas secundarias según sea necesario
     ]

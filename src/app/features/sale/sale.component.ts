@@ -104,7 +104,7 @@ export class SaleComponent implements OnInit, OnDestroy {
           }
         ],
         language: {
-          url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+          url: "assets/i18n/Spanish.json"
         },
         //responsive: true,
         pagingType: 'simple_numbers', // Tipo de paginación

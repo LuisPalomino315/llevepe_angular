@@ -82,7 +82,12 @@ export class ProductComponent implements OnInit, OnDestroy{
               `;
             }
           }
-        ]
+        ],
+        language: {
+          url: "assets/i18n/Spanish.json"
+        },
+        //responsive: true,
+        pagingType: 'simple_numbers', // Tipo de paginación
       });
 
       // Manejar eventos de los botones después de que la tabla se haya dibujado

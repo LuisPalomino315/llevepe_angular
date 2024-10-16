@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { SaleService } from '../../../services/sale.service';
+import { SaleService } from 'src/app/services/sale.service';
+import { GlobalService } from 'src/app/services/global.service';
+import { ProductService } from 'src/app/services/product.service';
 import * as toastr from 'toastr';
 import * as $ from 'jquery';
 import 'datatables.net';
+import 'select2';
 
 @Component({
   selector: 'app-add-sale',
@@ -15,10 +18,14 @@ export class AddSaleComponent {
   addSaleForm: FormGroup;
   detalleForm: FormGroup;
   dataTable: any;
+  productos: any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private saleService: SaleService,
+    private global: GlobalService,
+    private productService: ProductService,
+    private chRef: ChangeDetectorRef,
     private router: Router
   ) {
     this.addSaleForm = this.fb.group({
@@ -48,6 +55,16 @@ export class AddSaleComponent {
 
   ngOnInit(): void {
     this.initializeDataTable();
+    this.loadProductos();
+  }
+
+  ngAfterViewInit(): void {
+    const selectProducto = $('#id_producto');
+    // Detectar cambios en select2 y actualizar el formControl de Angular
+    selectProducto.on('change', (e: any) => {
+      const selectedValue = e.target.value;
+      this.detalleForm.get('id_producto')?.setValue(selectedValue);
+    });
   }
 
   get detalles(): FormArray {
@@ -55,6 +72,7 @@ export class AddSaleComponent {
   }
 
   addDetalle(): void {
+  
     const detalleFormGroup = this.fb.group({
       id_producto: [this.detalleForm.get('id_producto')?.value, Validators.required],
       cantidad: [this.detalleForm.get('cantidad')?.value, [Validators.required, Validators.pattern('^[0-9]+$')]],
@@ -69,13 +87,10 @@ export class AddSaleComponent {
   }
 
   removeDetalle(id_producto: string): void {
-    // Asegúrate de que id_producto no tenga espacios en blanco adicionales
     id_producto = String(id_producto).trim();
 
-    // Encuentra el índice del detalle en el FormArray
     const index = this.detalles.controls.findIndex(detalle => {
       const detalleIdProducto = detalle.get('id_producto')?.value.trim();
-      //console.log(`Comparando ${detalleIdProducto} con ${id_producto}`);
       return detalleIdProducto === id_producto;
     });
 
@@ -84,13 +99,16 @@ export class AddSaleComponent {
       this.detalles.removeAt(index);
       const row = this.dataTable.row((idx: number, data: any) => data[0] === id_producto);
       row.remove().draw();
+      this.chRef.detectChanges();
     }
-    console.log(this.detalles.value);
   }
 
   addDetalleToTable(detalle: any): void {
+    const producto: any = this.findProductoById(detalle.id_producto);
+    console.log(producto);
     this.dataTable.row.add([
       detalle.id_producto,
+      producto.nombre,
       detalle.cantidad,
       detalle.precio,
       `<button class="btn btn-danger btn-sm delete-btn" data-id="${detalle.id_producto}">Eliminar</button>`
@@ -104,10 +122,15 @@ export class AddSaleComponent {
     });
   }
 
+  findProductoById(id_producto: number): any {
+    return this.productos.find(producto => producto.id_producto == id_producto);
+  }
+
   initializeDataTable(): void {
     this.dataTable = $('#detallesTable').DataTable({
       columns: [
-        { title: 'ID Producto' },
+        { title: 'ID Producto', visible: false },
+        { title: 'Producto' },
         { title: 'Cantidad' },
         { title: 'Precio' },
         { title: 'Acciones' }
@@ -182,5 +205,13 @@ export class AddSaleComponent {
         }
       );
     }
+  }
+
+  loadProductos(): void {
+    this.productService.getProducts().subscribe(data => {
+      console.log(data); // Verificar los datos en la consola
+      this.productos = data as any[];
+    });
+    this.global.initializeSelect2('Seleccione un producto');
   }
 }

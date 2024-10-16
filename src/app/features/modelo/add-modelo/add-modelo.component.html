@@ -7,9 +7,9 @@
         <form [formGroup]="addModeloForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="id_modelo">Categoria</label>
-                    <input type="text" id="id_categoria" formControlName="id_modelo" class="form-control">
-                    <div *ngIf="addModeloForm.get('id_modelo')?.invalid && addModeloForm.get('id_categoria')?.touched" class="text-danger">
+                    <label for="id_categoria">Categoria</label>
+                    <input type="text" id="id_categoria" formControlName="id_categoria" class="form-control">
+                    <div *ngIf="addModeloForm.get('id_categoria')?.invalid && addModeloForm.get('id_categoria')?.touched" class="text-danger">
                         La categoria es requerida.
                     </div>
                 </div>

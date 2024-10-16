@@ -43,7 +43,7 @@ export class EditModeloComponent  {
       this.modeloService.updateModelo(this.modeloId, this.editModeloForm.value).subscribe(
         response => {
           toastr.success('Modelo actualizado exitosamente.', 'Éxito');
-          this.router.navigate(['/models']);
+          this.router.navigate(['/modelo']);
         },
         error => {
           toastr.error('Hubo un error al actualizar el modelo. Por favor, inténtelo de nuevo.', 'Error');

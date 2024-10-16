@@ -76,7 +76,10 @@ export class CategoryComponent implements OnInit, OnDestroy{
               `;
             }
           }
-        ]
+        ],
+        language: {
+          url: "assets/i18n/Spanish.json"
+        }
       });
 
       // Manejar eventos de los botones después de que la tabla se haya dibujado

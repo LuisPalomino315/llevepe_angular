@@ -32,7 +32,7 @@ export class AddModeloComponent {
           if (response.status === 201) {
             toastr.success('Modelo creado exitosamente.', 'Éxito');
             setTimeout(() => {
-              this.router.navigate(['/models']);
+              this.router.navigate(['/modelo']);
             }, 1000);
           } else {
             toastr.error('Hubo un error al crear el modelo. Por favor, inténtelo de nuevo.', 'Error');
@@ -49,7 +49,7 @@ export class AddModeloComponent {
   }
   
   onBack(): void {
-    this.router.navigate(['/models']);
+    this.router.navigate(['/modelo']);
   }
   
   getFormValidationErrors() {

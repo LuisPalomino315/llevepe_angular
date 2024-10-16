@@ -36,7 +36,8 @@
               "node_modules/admin-lte/dist/css/adminlte.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/datatables.net-dt/css/dataTables.dataTables.min.css",
-              "node_modules/toastr/build/toastr.min.css"
+              "node_modules/toastr/build/toastr.min.css",
+              "node_modules/select2/dist/css/select2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -44,7 +45,8 @@
               "node_modules/admin-lte/dist/js/adminlte.min.js",
               "node_modules/jquery/dist/jquery.js",
               "node_modules/datatables.net/js/dataTables.min.js",
-              "node_modules/toastr/build/toastr.min.js"
+              "node_modules/toastr/build/toastr.min.js",
+              "node_modules/select2/dist/js/select2.min.js"
             ]
           },
           "configurations": {

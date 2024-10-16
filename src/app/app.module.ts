@@ -37,6 +37,8 @@ import { CategoryComponent } from './features/category/category.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
 import { ModeloComponent } from './features/modelo/modelo.component';
+import { AddModeloComponent } from './features/modelo/add-modelo/add-modelo.component';
+import { EditModeloComponent } from './features/modelo/edit-modelo/edit-modelo.component';
 
 
 
@@ -61,7 +63,9 @@ import { ModeloComponent } from './features/modelo/modelo.component';
     CategoryComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    ModeloComponent
+    ModeloComponent,
+    AddModeloComponent,
+    EditModeloComponent
   ],
   imports: [
     BrowserModule,

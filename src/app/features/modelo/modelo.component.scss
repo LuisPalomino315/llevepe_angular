@@ -1,0 +1,13 @@
+/* user.component.scss */
+:host ::ng-deep .datatable-header {
+    background-color: #f4f6f9;
+}
+
+:host ::ng-deep .datatable-body-row {
+    cursor: pointer;
+}
+
+:host ::ng-deep .datatable-body-cell {
+    text-align: center;
+    vertical-align: middle;
+}
